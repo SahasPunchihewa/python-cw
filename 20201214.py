@@ -7,14 +7,99 @@ progressions = {"pro":"Progress","pro_mt":"Progress (module trailer)","d_pro":"D
 def student_mark_input():
 
     #gettings inputs for pass,defer and fail marks
+    
+    total_check=1
 
-    pass_mark = int(input("Please Enter Your Credits At Pass : "))
-    defer_mark = int(input("Please Enter Your Credits At Defer : "))
-    fail_mark = int(input("Please Enter Your Credits At Fail : "))
+    while total_check==1:
+
+        pass_mark=pass_input()
+        defer_mark=defer_input()
+        fail_mark=fail_input()
+        total=pass_mark+defer_mark+fail_mark
+        
+        if total>120:
+            
+            print("Total incorrect.\n")
+
+        else:
+
+            total_check=0
+    
 
     #returns pass_mark, defer_mark and fail_mark
 
     return pass_mark,defer_mark,fail_mark
+
+def pass_input():
+
+    type_match=1
+
+    while type_match==1:
+        
+        try:
+
+            pass_mark = int(input("Please Enter Your Credits At Pass : "))
+            if (pass_mark<=120) and (pass_mark>=0):
+
+                type_match=0
+            
+            else:
+
+                print("Out of range.\n")
+        
+        except:
+           
+            print("Integer required\n")
+    
+    return pass_mark
+
+def defer_input():
+
+    type_match=1
+
+    while type_match==1:
+        
+        try:
+
+            defer_mark = int(input("Please Enter Your Credits At Defer : "))
+            if (defer_mark<=120) and (defer_mark>=0):
+
+                type_match=0
+            
+            else:
+
+                print("Out of range.\n")
+        
+        except:
+           
+            print("Integer required\n")
+            type_match=1
+    
+    return defer_mark
+
+def fail_input():
+
+    type_match=1
+
+    while type_match==1:
+        
+        try:
+
+            fail_mark = int(input("Please Enter Your Credits At Fail : "))
+            if (fail_mark<=120) and (fail_mark>=0):
+
+                type_match=0
+            
+            else:
+
+                print("Out of range.\n")
+        
+        except:
+           
+            print("Integer required\n")
+            type_match=1
+    
+    return fail_mark
 
 #creating function for check Progression Outcome and print the message
 
