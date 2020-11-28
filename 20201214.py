@@ -112,7 +112,7 @@ def defer_input():
 def fail_input():
 
     #this is like same as privius function, this is for input fail marks
-    
+
     type_match=1
 
     while type_match==1:
@@ -265,41 +265,41 @@ while run==1:
 
                 if pro_count>i:
                   
-                    print('*',"\t\t",end='')
+                    print('   *',"\t\t",end='')
                 
                 else:
                 
-                    print("\t\t",end='')
+                    print("   \t\t",end='')
                 
                 #column 2
 
                 if trail_count>i:
                 
-                    print('*',"\t\t",end='')
+                    print('   *',"\t\t",end='')
                 
                 else:
                 
-                    print("\t\t",end='')
+                    print("   \t\t",end='')
                 
                 #column 3
 
                 if retriew_count>i:
                 
-                    print('*',"\t\t",end='')
+                    print('   *',"\t\t",end='')
                 
                 else:
                 
-                    print("\t\t",end='')
+                    print("   \t\t",end='')
                 
                 #column 4
 
                 if exclude_count>i:
                 
-                    print('*',"\t\t")
+                    print('   *',"\t\t")
                 
                 else:
                 
-                    print("\t\t")
+                    print("   \t\t")
 
         elif user_dec=='y':
 
