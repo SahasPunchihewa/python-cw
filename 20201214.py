@@ -135,6 +135,8 @@ def fail_input():
 
 def progress_check(pass_mark,defer_mark,fail_mark):
 
+    # imported variables from global scope
+
     global pro_count
     global trail_count
     global retriew_count
@@ -155,6 +157,8 @@ def progress_check(pass_mark,defer_mark,fail_mark):
         #assign Progression Outcome message to a new variable called 'prog'
 
         prog = progressions["pro"]
+
+        # increased progress count
 
         pro_count=pro_count+1
     
@@ -186,6 +190,7 @@ def progress_check(pass_mark,defer_mark,fail_mark):
 
     print(prog)
 
+# initialized variables with starting values
 run=1
 pro_count=0
 trail_count=0
@@ -209,25 +214,43 @@ while run==1:
     #print dashes for identify outtputs clearly
 
     response=0
-    
+
+    #loops prompt for another marks of student
+
     while response==0:
     
+        #prompt for users action
+
         user_dec=input("Do You Want To Enter Marks Of Another Student or quite program ?(y/q)").lower()
 
         if user_dec=='q':
-            
+
+            #if user entrer 'q' this will executed
+
+            #setting this valus stops the loop       
             run=0
             response=1
+
+            #calculates total students
+
             total_outcome=pro_count+trail_count+retriew_count+exclude_count
             print("------------------------------------------------------------\n")
+
+            #show histogrem of student progresses
+
             print("Horizontal Histogram\nProgress ",pro_count," \t: ",'*'*pro_count,"\nTrailer ",trail_count," \t: ",'*'*trail_count,"\nRetriever ",retriew_count," \t: ",'*'*retriew_count,"\nExcluded ",exclude_count," \t: ",'*'*exclude_count,"\n",total_outcome," outcomes in total.")
             print("------------------------------------------------------------")
 
         elif user_dec=='y':
 
+            #this will execute when user input 'y' as action
+
             print("------------------------------------------------------------")
+            
             response=1
 
         else:
 
+            #this will execute when user inputs wrong input
+            
             print("Cannot Recognize Your Response ! \n")
