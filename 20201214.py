@@ -134,6 +134,11 @@ def fail_input():
 #creating function for check Progression Outcome and print the message
 
 def progress_check(pass_mark,defer_mark,fail_mark):
+
+    global pro_count
+    global trail_count
+    global retriew_count
+    global exclude_count
     
     #concatinate string values of pass_mark, defer_mark and fail_mark by '|' and assign it to 'marks'
 
@@ -150,41 +155,79 @@ def progress_check(pass_mark,defer_mark,fail_mark):
         #assign Progression Outcome message to a new variable called 'prog'
 
         prog = progressions["pro"]
+
+        pro_count=pro_count+1
     
     #checking marks for 'Progress (module trailer)' Progression Outcome
 
     elif (marks == '100|20|0') or (marks == '100|0|20') :
     
         prog = progressions["pro_mt"]
+
+        trail_count=trail_count+1
     
     #checking marks for 'Do not Progress – module retriever' Progression Outcome
 
     elif (marks == '80|40|0') or (marks == '80|20|20') or (marks == '80|0|40') or (marks == '60|60|0') or (marks == '60|40|20') or (marks == '60|20|40') or (marks == '60|0|60') or (marks == '40|80|0') or (marks == '40|60|20') or (marks == '40|40|40') or (marks == '40|20|60') or (marks == '20|100|0') or (marks == '20|80|20') or (marks == '20|60|40') or (marks == '20|40|60') or (marks == '0|120|0') or (marks == '0|100|20') or (marks == '0|80|40') or (marks == '0|60|60'):
     
         prog = progressions["d_pro"]
+
+        retriew_count=retriew_count+1
     
     #checking marks for 'Exclude' Progression Outcome
 
     elif (marks == '40|0|80') or (marks == '20|20|80') or (marks == '20|0|100') or (marks == '0|40|80') or (marks == '0|20|100') or (marks == '0|0|120'):
     
         prog = progressions["exc"]
+
+        exclude_count=exclude_count+1
     
     #print Progression Outcome message
 
     print(prog)
 
-#print dashes for identify outtputs clearly
+run=1
+pro_count=0
+trail_count=0
+retriew_count=0
+exclude_count=0
 
-print("------------------------------------------------------------")
+while run==1:
 
-#calling student_mark_input function
+    #print dashes for identify outtputs clearly
 
-marks=student_mark_input()
+    print("------------------------------------------------------------")
 
-#calling progress_check function
+    #calling student_mark_input function
 
-progress_check(marks[0],marks[1],marks[2])
+    marks=student_mark_input()
 
-#print dashes for identify outtputs clearly
+    #calling progress_check function
 
-print("------------------------------------------------------------")
+    progress_check(marks[0],marks[1],marks[2])
+
+    #print dashes for identify outtputs clearly
+
+    response=0
+    
+    while response==0:
+    
+        user_dec=input("Do You Want To Enter Marks Of Another Student or quite program ?(y/q)").lower()
+
+        if user_dec=='q':
+            
+            run=0
+            response=1
+            total_outcome=pro_count+trail_count+retriew_count+exclude_count
+            print("------------------------------------------------------------\n")
+            print("Horizontal Histogram\nProgress ",pro_count," \t: ",'*'*pro_count,"\nTrailer ",trail_count," \t: ",'*'*trail_count,"\nRetriever ",retriew_count," \t: ",'*'*retriew_count,"\nExcluded ",exclude_count," \t: ",'*'*exclude_count,"\n",total_outcome," outcomes in total.")
+            print("------------------------------------------------------------")
+
+        elif user_dec=='y':
+
+            print("------------------------------------------------------------")
+            response=1
+
+        else:
+
+            print("Cannot Recognize Your Response ! \n")
