@@ -190,6 +190,8 @@ def progress_check(pass_mark,defer_mark,fail_mark):
 
         exclude_count=exclude_count+1
     
+    else:
+        print("Total Incorrect .")
     #print Progression Outcome message
 
     print(prog,"\n")
