@@ -188,7 +188,7 @@ def progress_check(pass_mark,defer_mark,fail_mark):
     
     #print Progression Outcome message
 
-    print(prog)
+    print(prog,"\n")
 
 # initialized variables with starting values
 run=1
@@ -197,11 +197,11 @@ trail_count=0
 retriew_count=0
 exclude_count=0
 
+#print dashes for identify outtputs clearly
+
+print("------------------------------------------------------------")
+
 while run==1:
-
-    #print dashes for identify outtputs clearly
-
-    print("------------------------------------------------------------")
 
     #calling student_mark_input function
 
@@ -239,18 +239,41 @@ while run==1:
             #show histogrem of student progresses
 
             print("Horizontal Histogram\nProgress ",pro_count," \t: ",'*'*pro_count,"\nTrailer ",trail_count," \t: ",'*'*trail_count,"\nRetriever ",retriew_count," \t: ",'*'*retriew_count,"\nExcluded ",exclude_count," \t: ",'*'*exclude_count,"\n",total_outcome," outcomes in total.")
-            print("------------------------------------------------------------")
+            print("------------------------------------------------------------\n")
+
+            print("Progress \tTrailing \tRetriever \tExcluded")
+            prog_list=[pro_count,trail_count,retriew_count,exclude_count]
+            max_prog=max(prog_list)
+            for i in range(max_prog):
+                if pro_count>i:
+                    print('*',"\t\t",end='')
+                else:
+                    print("\t\t",end='')
+                if trail_count>i:
+                    print('*',"\t\t",end='')
+                else:
+                    print("\t\t",end='')
+                if retriew_count>i:
+                    print('*',"\t\t",end='')
+                else:
+                    print("\t\t",end='')
+                if exclude_count>i:
+                    print('*',"\t\t")
+                else:
+                    print("\t\t")
 
         elif user_dec=='y':
 
             #this will execute when user input 'y' as action
 
-            print("------------------------------------------------------------")
+            
             
             response=1
 
         else:
 
             #this will execute when user inputs wrong input
-            
+
             print("Cannot Recognize Your Response ! \n")
+
+print("------------------------------------------------------------")
