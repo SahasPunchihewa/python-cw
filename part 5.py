@@ -1,22 +1,37 @@
+#asign values to three lists one for pass marks , one for defer marks and the other for fail marks
+
 pass_list=[120,100,100,80,60,40,20,20,20,0]
 defer_list=[0,20,0,20,40,40,40,20,0,0]
 fail_list=[0,0,20,20,20,40,60,80,100,120]
+
 #assigning Progression Outcome messages to a dictionary
 
 progressions = {"pro":"Progress","pro_mt":"Progress (module trailer)","d_pro":"Do not Progress – module retriever","exc":"Exclude"}
+
+#initializing values in to 0
+
 pro_count=0
 trail_count=0
 retriew_count=0
 exclude_count=0
 
+#create function for the checking
+
 def checker():
+
+    #import variables form global scope
 
     global pro_count
     global trail_count
     global retriew_count
     global exclude_count
 
+    #loop for get each record of marks
+
     for i in range (len(pass_list)):
+
+        #concatinate marks to compare
+
         marks=str(pass_list[i])+'|'+str(defer_list[i])+'|'+str(fail_list[i])
 
         #assign empty string for variable 'prog'
@@ -67,13 +82,19 @@ def checker():
 
         
 def histogram(pro_count,trail_count,retriew_count,exclude_count):
+    
     #calculates total students
+    
     total_outcome=pro_count+trail_count+retriew_count+exclude_count
     print()
 
+    
         #show histogrem of student progresses
+    
     print("Horizontal Histogram\nProgress \t",pro_count," : ",'*'*pro_count,"\nTrailer \t",trail_count," : ",'*'*trail_count,"\nRetriever \t",retriew_count," : ",'*'*retriew_count,"\nExcluded \t",exclude_count," : ",'*'*exclude_count,"\n\n",total_outcome," outcomes in total.")
 
+
+#calling functions
 
 checker()
 histogram(pro_count,trail_count,retriew_count,exclude_count)
