@@ -10,18 +10,31 @@ def student_mark_input():
     
     total_check=1
 
+    #iteration for check total marks are less than 121
+
     while total_check==1:
+
+        #calling functions for input and check vaied
 
         pass_mark=pass_input()
         defer_mark=defer_input()
         fail_mark=fail_input()
+
+        #adding all the marks and assign into a variable 'total'
+
         total=pass_mark+defer_mark+fail_mark
         
+        #check is the total is graeter than 120
+
         if total>120:
-            
+
+            #print this and loop
+    
             print("Total incorrect.\n")
 
         else:
+
+            #ends loop
 
             total_check=0
     
@@ -30,16 +43,31 @@ def student_mark_input():
 
     return pass_mark,defer_mark,fail_mark
 
+#creating function for get input of pass marks and check that valied
+
 def pass_input():
+
+    #initialize this for loop
 
     type_match=1
 
+    #loop for check value is valied
+
     while type_match==1:
         
+        #added try catch to catch wrong type error
+
         try:
 
+            #input passs mark
+
             pass_mark = int(input("Please Enter Your Credits At Pass : "))
+
+            #check mark is between 0 and 120
+
             if (pass_mark<=120) and (pass_mark>=0):
+
+                #stops loop
 
                 type_match=0
             
@@ -51,6 +79,8 @@ def pass_input():
            
             print("Integer required\n")
     
+    #returning value of passmark
+
     return pass_mark
 
 def defer_input():
