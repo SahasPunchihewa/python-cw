@@ -65,7 +65,7 @@ def pass_input():
 
             #check mark is between 0 and 120
 
-            if (pass_mark<=120) and (pass_mark>=0):
+            if (pass_mark==120) or (pass_mark==100) or (pass_mark==80) or (pass_mark==60) or (pass_mark==40) or (pass_mark==20) or (pass_mark==0):
 
                 #stops loop
 
@@ -94,7 +94,7 @@ def defer_input():
         try:
 
             defer_mark = int(input("Please Enter Your Credits At Defer : "))
-            if (defer_mark<=120) and (defer_mark>=0):
+            if (defer_mark==120) or (defer_mark==100) or (defer_mark==80) or (defer_mark==60) or (defer_mark==40) or (defer_mark==20) or (defer_mark==0):
 
                 type_match=0
             
@@ -120,7 +120,7 @@ def fail_input():
         try:
 
             fail_mark = int(input("Please Enter Your Credits At Fail : "))
-            if (fail_mark<=120) and (fail_mark>=0):
+            if (fail_mark==120) or (fail_mark==100) or (fail_mark==80) or (fail_mark==60) or (fail_mark==40) or (fail_mark==20) or (fail_mark==0):
 
                 type_match=0
             
