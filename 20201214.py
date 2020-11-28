@@ -85,6 +85,8 @@ def pass_input():
 
 def defer_input():
 
+    #this is like same as privius function, this is for input defer marks
+
     type_match=1
 
     while type_match==1:
@@ -109,6 +111,8 @@ def defer_input():
 
 def fail_input():
 
+    #this is like same as privius function, this is for input fail marks
+    
     type_match=1
 
     while type_match==1:
@@ -241,25 +245,60 @@ while run==1:
             print("Horizontal Histogram\nProgress ",pro_count," \t: ",'*'*pro_count,"\nTrailer ",trail_count," \t: ",'*'*trail_count,"\nRetriever ",retriew_count," \t: ",'*'*retriew_count,"\nExcluded ",exclude_count," \t: ",'*'*exclude_count,"\n",total_outcome," outcomes in total.")
             print("------------------------------------------------------------\n")
 
+            #heading for vertical histogram
+            
             print("Progress \tTrailing \tRetriever \tExcluded")
+            
+            #create a list wich conntains all student counts to find max of them
+
             prog_list=[pro_count,trail_count,retriew_count,exclude_count]
+            
+            #calculate maximum ofcounts and assign it into a variable 'max_prog'
+
             max_prog=max(prog_list)
+            
+            #for loop to print vertical histogram
+
             for i in range(max_prog):
+
+                # column 1
+
                 if pro_count>i:
+                  
                     print('*',"\t\t",end='')
+                
                 else:
+                
                     print("\t\t",end='')
+                
+                #column 2
+
                 if trail_count>i:
+                
                     print('*',"\t\t",end='')
+                
                 else:
+                
                     print("\t\t",end='')
+                
+                #column 3
+
                 if retriew_count>i:
+                
                     print('*',"\t\t",end='')
+                
                 else:
+                
                     print("\t\t",end='')
+                
+                #column 4
+
                 if exclude_count>i:
+                
                     print('*',"\t\t")
+                
                 else:
+                
                     print("\t\t")
 
         elif user_dec=='y':
