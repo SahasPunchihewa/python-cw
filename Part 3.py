@@ -221,7 +221,7 @@ while run==1:
     
         #prompt for users action
 
-        user_dec=input("Do You Want To Enter Marks Of Another Student or quite program ?(y/q)").lower()
+        user_dec=input("Do You Want To Enter Marks Of Another Student or quite program ?(y/q) ").lower()
 
         if user_dec=='q':
 
