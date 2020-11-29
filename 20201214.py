@@ -355,142 +355,145 @@ pro_count=0
 trail_count=0
 retriew_count=0
 exclude_count=0
+menu_run=1
 
-#print menu
+while menu_run==1:
+    #print menu
 
-print("------------------------------------------------------------")
-print("|\tEnter 1 For Student Version\t\t\t   |\n|\tEnter 2 For Student Version (Validation)\t   |\n|\tEnter 3 For Staff Version With Histogram\t   |\n|\tEnter 4 For Vertical Histogram\t\t\t   |\n|\tEnter 5 For Alternative Staff Version\t\t   |\n|\tEnter 6 For Quite\t\t\t\t   |")
+    print("------------------------------------------------------------")
+    print("|\tEnter 1 For Student Version\t\t\t   |\n|\tEnter 2 For Student Version (Validation)\t   |\n|\tEnter 3 For Staff Version With Histogram\t   |\n|\tEnter 4 For Vertical Histogram\t\t\t   |\n|\tEnter 5 For Alternative Staff Version\t\t   |\n|\tEnter 6 For Quite\t\t\t\t   |")
 
-#input menu response from user
+    #input menu response from user
 
-menu=int(input("------------------------------------------------------------\n"))
+    menu=int(input("------------------------------------------------------------\n"))
 
-#to quite program if 6 selected
+    #to quite program if 6 selected
 
-if menu==6:
-    
-    run=0
-
-elif menu==5:
-
-    #calling functions
-
-    checker()
-    histogram(pro_count2,trail_count2,retriew_count2,exclude_count2)
-    run=0
-
-else:
-    print("---------------------------------------------------------------")
-while run==1:
-
-    if (menu==1)or(menu==2):
+    if menu==6:
+        
         run=0
-    #calling student_mark_input function
+        menu_run=0
 
-    marks=student_mark_input()
+    elif menu==5:
 
-    #calling progress_check function
+        #calling functions
 
-    progress_check(marks[0],marks[1],marks[2])
+        checker()
+        histogram(pro_count2,trail_count2,retriew_count2,exclude_count2)
+        run=0
 
-    #print dashes for identify outtputs clearly
+    else:
+        print("---------------------------------------------------------------")
+    while run==1:
 
-    response=0
+        if (menu==1)or(menu==2):
+            run=0
+        #calling student_mark_input function
 
-    #loops prompt for another marks of student
+        marks=student_mark_input()
 
-    if (menu==3) or (menu==4):
-        while response==0:
-    
-            #prompt for users action
+        #calling progress_check function
 
-            user_dec=input("Do You Want To Enter Marks Of Another Student or quite program ?(y/q) ").lower()
+        progress_check(marks[0],marks[1],marks[2])
 
-            if user_dec=='q':
+        #print dashes for identify outtputs clearly
 
-                #if user entrer 'q' this will executed
+        response=0
 
-                #setting this valus stops the loop       
-                run=0
-                response=1
+        #loops prompt for another marks of student
 
-                #calculates total students
-            
-                total_outcome=pro_count+trail_count+retriew_count+exclude_count
-                print("------------------------------------------------------------\n")
+        if (menu==3) or (menu==4):
+            while response==0:
+        
+                #prompt for users action
 
-                #show histogrem of student progresses
-                if menu==3:
-                    print("Horizontal Histogram\nProgress \t",pro_count," \t: ",'*'*pro_count,"\nTrailer \t",trail_count," \t: ",'*'*trail_count,"\nRetriever \t",retriew_count," \t: ",'*'*retriew_count,"\nExcluded \t",exclude_count," \t: ",'*'*exclude_count,"\n",total_outcome," outcomes in total.")
+                user_dec=input("Do You Want To Enter Marks Of Another Student or quite program ?(y/q) ").lower()
+
+                if user_dec=='q':
+
+                    #if user entrer 'q' this will executed
+
+                    #setting this valus stops the loop       
+                    run=0
+                    response=1
+
+                    #calculates total students
+                
+                    total_outcome=pro_count+trail_count+retriew_count+exclude_count
                     print("------------------------------------------------------------\n")
 
-                if menu==4:
-                    #heading for vertical histogram
+                    #show histogrem of student progresses
+                    if menu==3:
+                        print("Horizontal Histogram\nProgress \t",pro_count," \t: ",'*'*pro_count,"\nTrailer \t",trail_count," \t: ",'*'*trail_count,"\nRetriever \t",retriew_count," \t: ",'*'*retriew_count,"\nExcluded \t",exclude_count," \t: ",'*'*exclude_count,"\n",total_outcome," outcomes in total.")
+                        print("------------------------------------------------------------\n")
+
+                    if menu==4:
+                        #heading for vertical histogram
+                        
+                        print("Progress ",pro_count," | Trailer ",trail_count," | Retriever ",retriew_count," | Excluded ",exclude_count)
+                        
+                        #create a list wich conntains all student counts to find max of them
+
+                        prog_list=[pro_count,trail_count,retriew_count,exclude_count]
+                        
+                        #calculate maximum ofcounts and assign it into a variable 'max_prog'
+
+                        max_prog=max(prog_list)
+                        
+                        #for loop to print vertical histogram
+
+                        for i in range(max_prog):
+
+                            # column 1
+
+                            if pro_count>i:
+                            
+                                print('   *',"\t\t",end='')
+                            
+                            else:
+                            
+                                print("   \t\t",end='')
+                            
+                            #column 2
+
+                            if trail_count>i:
+                            
+                                print('   *',"\t\t",end='')
+                            
+                            else:
+                            
+                                print("   \t\t",end='')
+                            
+                            #column 3
+
+                            if retriew_count>i:
+                            
+                                print('   *',"\t\t",end='')
+                            
+                            else:
+                            
+                                print("   \t\t",end='')
+                            
+                            #column 4
+
+                            if exclude_count>i:
+                            
+                                print('   *',"\t\t")
+                            
+                            else:
+                            
+                                print("   \t\t")
+
+                elif user_dec=='y':
+
+                    #this will execute when user input 'y' as action
+
                     
-                    print("Progress ",pro_count," | Trailer ",trail_count," | Retriever ",retriew_count," | Excluded ",exclude_count)
                     
-                    #create a list wich conntains all student counts to find max of them
+                    response=1
 
-                    prog_list=[pro_count,trail_count,retriew_count,exclude_count]
-                    
-                    #calculate maximum ofcounts and assign it into a variable 'max_prog'
+                else:
 
-                    max_prog=max(prog_list)
-                    
-                    #for loop to print vertical histogram
+                    #this will execute when user inputs wrong input
 
-                    for i in range(max_prog):
-
-                        # column 1
-
-                        if pro_count>i:
-                        
-                            print('   *',"\t\t",end='')
-                        
-                        else:
-                        
-                            print("   \t\t",end='')
-                        
-                        #column 2
-
-                        if trail_count>i:
-                        
-                            print('   *',"\t\t",end='')
-                        
-                        else:
-                        
-                            print("   \t\t",end='')
-                        
-                        #column 3
-
-                        if retriew_count>i:
-                        
-                            print('   *',"\t\t",end='')
-                        
-                        else:
-                        
-                            print("   \t\t",end='')
-                        
-                        #column 4
-
-                        if exclude_count>i:
-                        
-                            print('   *',"\t\t")
-                        
-                        else:
-                        
-                            print("   \t\t")
-
-            elif user_dec=='y':
-
-                #this will execute when user input 'y' as action
-
-                
-                
-                response=1
-
-            else:
-
-                #this will execute when user inputs wrong input
-
-                print("Cannot Recognize Your Response ! \n")
+                    print("Cannot Recognize Your Response ! \n")
