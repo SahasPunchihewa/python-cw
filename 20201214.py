@@ -30,6 +30,9 @@ def student_mark_input():
         pass_mark=pass_input()
         defer_mark=defer_input()
         fail_mark=fail_input()
+
+        #not to check total when part 1
+
         if menu!=1:
         
             #adding all the marks and assign into a variable 'total'
@@ -77,11 +80,16 @@ def pass_input():
 
             pass_mark = int(input("Please Enter Your Credits At Pass : "))
 
-            #check mark is between 0 and 120
+            #skip when part one is selected
+            
             if(menu==1):
+                
                 type_match=0
+            
             else:
 
+                #check mark is between 0 and 120
+                
                 if (pass_mark==120) or (pass_mark==100) or (pass_mark==80) or (pass_mark==60) or (pass_mark==40) or (pass_mark==20) or (pass_mark==0):
 
                     #stops loop
@@ -93,16 +101,25 @@ def pass_input():
                     print("Out of range.\n")
         
         except:
+
+            #skips when part one mode is selected
+
             if menu!=1:
+
                 print("Integer required\n")
+            
             else:
+            
                 type_match=0
     
     #returning value of passmark
 
     try:
+        
         return pass_mark
+    
     except:
+    
         ex=0
 
 def defer_input():
@@ -116,8 +133,11 @@ def defer_input():
         try:
 
             defer_mark = int(input("Please Enter Your Credits At Defer : "))
+            
             if(menu==1):
+            
                 type_match=0
+            
             else:
 
                 if (defer_mark==120) or (defer_mark==100) or (defer_mark==80) or (defer_mark==60) or (defer_mark==40) or (defer_mark==20) or (defer_mark==0):
@@ -129,14 +149,22 @@ def defer_input():
                     print("Out of range.\n")
         
         except:
+            
             if menu!=1:
+            
                 print("Integer required\n")
+            
                 type_match=1
             else:
+            
                 type_match=0
+    
     try:
+    
         return defer_mark
+    
     except:
+       
         ex=0
 
 def fail_input():
@@ -150,8 +178,11 @@ def fail_input():
         try:
 
             fail_mark = int(input("Please Enter Your Credits At Fail : "))
+            
             if(menu==1):
+            
                 type_match=0
+            
             else:
 
                 if (fail_mark==120) or (fail_mark==100) or (fail_mark==80) or (fail_mark==60) or (fail_mark==40) or (fail_mark==20) or (fail_mark==0):
@@ -163,14 +194,22 @@ def fail_input():
                     print("Out of range.\n")
         
         except:
+            
             if menu!=1:
+            
                 print("Integer required\n")
+            
                 type_match=1
+            
             else:
+            
                 type_match=0
     try:
+        
         return fail_mark
+    
     except:
+    
         ex=0
 
 #creating function for check Progression Outcome and print the message
@@ -231,6 +270,8 @@ def progress_check(pass_mark,defer_mark,fail_mark):
     #print Progression Outcome message
 
     print(prog,"\n")
+
+#function for check marks in part 5
 
 def checker():
 
@@ -294,8 +335,8 @@ def checker():
         print(prog)
         
         
+#histogram function for part 5
 
-        
 def histogram(pro_count,trail_count,retriew_count,exclude_count):
     
     #calculates total students
@@ -303,7 +344,6 @@ def histogram(pro_count,trail_count,retriew_count,exclude_count):
     total_outcome=pro_count2+trail_count2+retriew_count2+exclude_count2
     print()
 
-    
         #show histogrem of student progresses
     
     print("Progress ",pro_count2," : ",'*'*pro_count2,"\nTrailer ",trail_count2," : ",'*'*trail_count2,"\nRetriever ",retriew_count2," : ",'*'*retriew_count2,"\nExcluded ",exclude_count2," : ",'*'*exclude_count2,"\n\n",total_outcome," outcomes in total.")
@@ -316,14 +356,23 @@ trail_count=0
 retriew_count=0
 exclude_count=0
 
-#print dashes for identify outtputs clearly
+#print menu
 
 print("------------------------------------------------------------")
 print("|\tEnter 1 For Student Version\t\t\t   |\n|\tEnter 2 For Student Version (Validation)\t   |\n|\tEnter 3 For Staff Version With Histogram\t   |\n|\tEnter 4 For Vertical Histogram\t\t\t   |\n|\tEnter 5 For Alternative Staff Version\t\t   |\n|\tEnter 6 For Quite\t\t\t\t   |")
+
+#input menu response from user
+
 menu=int(input("------------------------------------------------------------\n"))
+
+#to quite program if 6 selected
+
 if menu==6:
+    
     run=0
+
 elif menu==5:
+
     #calling functions
 
     checker()
