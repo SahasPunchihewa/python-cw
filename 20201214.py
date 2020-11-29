@@ -38,7 +38,7 @@ def student_mark_input():
             
             #check is the total is graeter than 120
 
-            if total>120:
+            if (total>120) or(total<120):
 
                 #print this and loop
         
@@ -228,9 +228,6 @@ def progress_check(pass_mark,defer_mark,fail_mark):
 
         exclude_count=exclude_count+1
     
-    else:
-        if menu!=1:
-            print("Total Incorrect .")
     #print Progression Outcome message
 
     print(prog,"\n")
