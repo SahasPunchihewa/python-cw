@@ -91,7 +91,7 @@ def histogram(pro_count,trail_count,retriew_count,exclude_count):
     
         #show histogrem of student progresses
     
-    print("Horizontal Histogram\nProgress \t",pro_count," : ",'*'*pro_count,"\nTrailer \t",trail_count," : ",'*'*trail_count,"\nRetriever \t",retriew_count," : ",'*'*retriew_count,"\nExcluded \t",exclude_count," : ",'*'*exclude_count,"\n\n",total_outcome," outcomes in total.")
+    print("Progress \t",pro_count," : ",'*'*pro_count,"\nTrailer \t",trail_count," : ",'*'*trail_count,"\nRetriever \t",retriew_count," : ",'*'*retriew_count,"\nExcluded \t",exclude_count," : ",'*'*exclude_count,"\n\n",total_outcome," outcomes in total.")
 
 
 #calling functions

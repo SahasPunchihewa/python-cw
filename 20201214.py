@@ -306,7 +306,7 @@ def histogram(pro_count,trail_count,retriew_count,exclude_count):
     
         #show histogrem of student progresses
     
-    print("Horizontal Histogram\nProgress \t",pro_count2," : ",'*'*pro_count2,"\nTrailer \t",trail_count2," : ",'*'*trail_count2,"\nRetriever \t",retriew_count2," : ",'*'*retriew_count2,"\nExcluded \t",exclude_count2," : ",'*'*exclude_count2,"\n\n",total_outcome," outcomes in total.")
+    print("Progress ",pro_count2," : ",'*'*pro_count2,"\nTrailer ",trail_count2," : ",'*'*trail_count2,"\nRetriever ",retriew_count2," : ",'*'*retriew_count2,"\nExcluded ",exclude_count2," : ",'*'*exclude_count2,"\n\n",total_outcome," outcomes in total.")
 
 
 # initialized variables with starting values
@@ -378,7 +378,7 @@ while run==1:
                 if menu==4:
                     #heading for vertical histogram
                     
-                    print("Progress \tTrailing \tRetriever \tExcluded")
+                    print("Progress ",pro_count," | Trailer ",trail_count," | Retriever ",retriew_count," | Excluded ",exclude_count)
                     
                     #create a list wich conntains all student counts to find max of them
 

@@ -247,7 +247,7 @@ while run==1:
 
             #heading for vertical histogram
             
-            print("Progress \tTrailing \tRetriever \tExcluded")
+            print("Progress ",pro_count," | Trailer ",trail_count," | Retriever ",retriew_count," | Excluded ",exclude_count)
             
             #create a list wich conntains all student counts to find max of them
 
